@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.foxe5.hrt_fin">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,9 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
 
         <activity
             android:name=".TinderReview">
+=======
+        <activity android:name=".TinderReview">
+>>>>>>> bfc0a96535bc8d5dc36897f50b191bf1a7c38396
         </activity>
     </application>
 

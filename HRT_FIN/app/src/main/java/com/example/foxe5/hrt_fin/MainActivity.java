@@ -8,22 +8,49 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.Menu;
 import android.view.MenuItem;
+<<<<<<< HEAD
 import android.widget.Toast;
+=======
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.StringReader;
+>>>>>>> bfc0a96535bc8d5dc36897f50b191bf1a7c38396
 
 
 public class MainActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
     private static final String TAG = "MainActivity";
 
     DatabaseHelper mDatabaseHelper;
     private Button btnAdd, btnViewData;
     private EditText editText;
+=======
+    private EditText link;
+    private Button sendToProfile;
+    private RequestQueue requestQueue;
+    private static final String URL = "";
+    private StringRequest request;
+
+>>>>>>> bfc0a96535bc8d5dc36897f50b191bf1a7c38396
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         editText = (EditText) findViewById(R.id.url_input);
 
         btnAdd = (Button) findViewById(R.id.get_profile);
@@ -44,9 +71,46 @@ public class MainActivity extends AppCompatActivity {
                     toastMessage("You must put something in the text field!");
                 }
             }
+=======
+        link = (EditText) findViewById(R.id.url_input);
+        sendToProfile = (Button) findViewById(R.id.get_profile);
 
+        requestQueue = Volley.newRequestQueue(this);
+
+        sendToProfile.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.names().get(0).equals("success")) {
+                                Toast.makeText(getApplicationContext(), "SUCCESS" + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(MainActivity.this, TinderReview.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+>>>>>>> bfc0a96535bc8d5dc36897f50b191bf1a7c38396
+
+
+                requestQueue.add(request);
+            }
         });
     }
+<<<<<<< HEAD
 
     public void AddData(String newEntry) {
         boolean insertData = mDatabaseHelper.addData(newEntry);
@@ -79,3 +143,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+=======
+}
+>>>>>>> bfc0a96535bc8d5dc36897f50b191bf1a7c38396
