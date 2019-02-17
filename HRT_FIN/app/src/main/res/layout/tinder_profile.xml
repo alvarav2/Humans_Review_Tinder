@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HRT"
+        android:textColor="@color/colorPrimary"
         android:fontFamily="@font/bevan"
         android:textSize="25dp" />
 
@@ -27,6 +28,40 @@
         android:background="@drawable/edit_text_background"
         android:paddingRight="200dp"
         android:paddingBottom="50dp" />
+
+    <Button
+        android:id="@+id/post_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundbutton"
+
+        android:text="post review"
+        android:textSize="13dp"
+        android:textColor="@color/white"
+
+        android:bottomRightRadius="8dp"
+        android:bottomLeftRadius="8dp"
+        android:topRightRadius="8dp"
+        android:topLeftRadius="8dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+<RelativeLayout
+    android:textSize="13dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:id="@+id/listView"
+        android:layout_marginBottom="10dp" />
+</RelativeLayout>
+
 
 
 
